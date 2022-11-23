@@ -1,0 +1,44 @@
+#tab_meal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe {
+
+    width: 20%;
+    min-width: 400px;
+    height: 600px;
+    border-radius: 5%;
+    border: 3px green;
+    border-style: dashed solid;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+}
+
+input {
+    width: 250px;
+}
+
+img {
+    width: 80%;
+    border-radius: 20%;
+}
+
+.desc_recipe {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+#all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
