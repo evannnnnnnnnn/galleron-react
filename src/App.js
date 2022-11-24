@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Tab_meal from './coponent/Tab_meal';
 import "./static.css"
+import Blog from './coponent/Blog';
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <Tab_meal elem={element} />
         )}
       </div>
+      <Blog />
     </div>
   )
 };
