@@ -10,6 +10,15 @@ const Arcticle = ({ pseudo, _message, _id, _date, callback }) => {
     const [messageOk, setMessageOk] = useState(true);
 
 
+    let date_time_obj = new Date(_date)
+    let date_opts = {
+        'day': 'numeric',
+        'month': 'long',
+        'year': 'numeric'
+    }
+    let locale = 'fr'
+    let date = date_time_obj.toLocaleDateString(locale, date_opts)
+    let time = date_time_obj.toLocaleTimeString(locale)
 
     const supprimer_article = (e) => {
         e.preventDefault();
@@ -28,7 +37,7 @@ const Arcticle = ({ pseudo, _message, _id, _date, callback }) => {
     if (edit_message) {
         return (
             <div class="art_review">
-                <b>{pseudo}</b>
+                <b>{pseudo}</b><i><p>Posté le {date} à {time}</p></i>
                 <textarea onChange={(e) => { setMessage(e.target.value); if (e.target.value.length >= 100) { setMessageOk(true) } else { setMessageOk(false) } }}>{_message}</textarea>
 
                 <button onClick={(e) => { modifier_article() }}>valider</button>
@@ -40,7 +49,7 @@ const Arcticle = ({ pseudo, _message, _id, _date, callback }) => {
     } else {
         return (
             <div class="art_review">
-                <b>{pseudo}</b>
+                <b>{pseudo}</b><i><p>Posté le {date} à {time}</p></i>
                 <p>{_message}</p>
 
                 <button onClick={(e) => setEdit_message(true)}>modifier</button>
