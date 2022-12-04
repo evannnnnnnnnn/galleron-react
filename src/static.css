@@ -68,3 +68,7 @@ form {
 #all_review {
     width: 90%;
 }
+
+.art_review p {
+    overflow-wrap: break-word;
+}
