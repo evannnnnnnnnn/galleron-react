@@ -18,14 +18,18 @@ const Blog = () => {
     const ajoujter_article = (e) => {
         e.preventDefault();
         if (messageOk) {
-            axios.post("http://localhost:3004/articles", { author: pseudo, content: message }).then(function () {
+            axios.post("http://localhost:3004/articles", { author: pseudo, content: message, date: new Date().getTime() }).then(function () {
                 axios.get("http://localhost:3004/articles").then((res) => setDatajson(res.data));
             });
         } else {
             console.log('non trop petit');
         }
-
     }
+
+    const actualiser_tableau = (e) => {
+        axios.get("http://localhost:3004/articles").then((res) => setDatajson(res.data));
+    }
+
 
     return (
         <div id="blog">
@@ -38,7 +42,7 @@ const Blog = () => {
             <div id="all_review">
                 {datajson.map((elem) =>
 
-                    <Arcticle pseudo={elem.author} message={elem.content} _id={elem.id} />
+                    <Arcticle pseudo={elem.author} _message={elem.content} _id={elem.id} _date={elem.date} callback={actualiser_tableau} />
                 )}
             </div>
         </div>
